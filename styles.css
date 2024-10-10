@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.layout {
+    width: 100%;
+    margin: 0 auto; 
+    background: linear-gradient(135deg, #f7b2b7, #ef8181);
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.layout__header {
+    background-color: white;
+    padding: 10px;
+    border: 2px solid #ef8181;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__item {
+    font-weight: bold;
+    font-size: 30px;
+    padding: 0 0 0 70px;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+.nav__logo {
+    margin-right: 70px;
+    width: 32px;
+    height: auto;
+}
+
+.promo {
+    padding: 50px;
+    position: relative;
+    z-index: 0;
+}
+
+.promo__title {
+    filter: drop-shadow(2px 0 #ef8181);
+    font-size: 64px;
+    font-weight: bold;
+    color: black;
+    margin: 180px 0 0 70px;
+    width: 729px;
+}
+
+.promo__text {
+    font-size: 32px;
+    color: palevioletred;
+    margin: 0 0 0 70px;
+}
+
+.promo__image {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 730px;
+    height: 471px;
+    margin-right: 100px;
+}
+
+.catalog {
+    padding: 50px 0;
+}
+
+.catalog__container {
+    display: flex; 
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.catalog__title {
+    text-decoration: underline;
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 200px;
+    color: black;
+    text-align: center;
+}
+
+.catalog__item {
+    background-color: white;
+    padding: 20px;
+    width: 360px;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.catalog__image {
+    width: 100%;
+    border-radius: 40px;
+    margin-bottom: 20px;
+}
+
+.catalog__details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.catalog__info {
+    font-size: 18px;
+    color: #333;
+}
+
+.catalog__price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.footer {
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    height: 60px;          
+}
+
+.footer__info {
+    font-size: 16px; 
+}
+
+.footer__link {
+    text-decoration: none;
+}

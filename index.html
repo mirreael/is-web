@@ -3,92 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Цветы в Санкт-Петербурге" />
-    <title>FLOWERS.SPB - Доставка цветов</title>
+    <meta name="description" content="Подписка на доставку цветов" />
+    <title>Подписка на доставку цветов</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Главная</a></li>
-                <li><a href="#">Букеты</a></li>
-                <li><a href="#">Цветы</a></li>
-                <li><a href="#">Контакты</a></li>
-            </ul>
-        </nav>
-        <h1>FLOWERS.SPB</h1>
-        <p>Доставка цветов по Санкт-Петербургу</p>
-        <button>Заказать</button>
-    </header>
-
-    <main>
-        <section>
-            <h2>Цветы</h2>
-            <h3>Наши достижения:</h3>
-            <ul>
-                <li>Быстрая доставка в любой район города</li>
-                <li>Только свеживе цветочики</li>
-            </ul>
-
-            <article>
-                <img src="image.png" alt="Букет белых роз" width="300" height="300">
-                <p>
-                    <strong>Букет белых роз 25 шт</strong><br>
-                    Страна производитель: Россия<br>
-                    Наличие: подтверждено
-                </p>
-                <p><strong>Цена: 4999 руб.</strong></p>
-                <button>Оформить</button>
-            </article>
-
+    <div class="layout">
+        <header class="layout__header">
+            <nav class="nav">
+                <ul class="nav__menu">
+                    <li class="nav__item"><a href="#catalog_title" class="nav__link">Каталог</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Условия</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Поставщики</a></li>
+                </ul>
+                <img class="nav__logo" src="images/logo.jpg" alt="Логотип">
+            </nav>
+        </header>
+    
+        <section class="promo">
+            <div class="promo__content">
+                <h1 class="promo__title">Подписка на доставку цветов</h1>
+                <h3 class="promo__text">В Санкт-Петербурге</h3>
+                <img src="images/promo_item.png" alt="Цветы" class="promo__image">
+            </div>
         </section>
-
-        <blockquote>
-            "Лучше цветочков - только цветочки."
-        </blockquote>
-
-
-        <p><sup>цветы</sup> + <sub>доствка</sub> = уроооо</p>
-
-        <pre>
-            _____________@@__@_@@@_____
-            _____________@__@@_____@_____
-            ____________@@_@__@_____@_____
-            ___________@@@_____@@___@@@@@_____
-            __________@@@@______@@_@____@@_____
-            _________@@@@_______@@______@_@_____
-            _________@@@@_______@_______@_____
-            _________@@@@@_____@_______@_____
-            __________@@@@@____@______@_____
-            ___________@@@@@@@______@_____
-            __@@@_________@@@@@_@_____
-            @@@@@@@________@@_____
-            _@@@@@@@_______@_____
-            __@@@@@@_______@@_____
-            ___@@_____@_____@_____
-            ____@______@____@_____@_@@_____
-            _______@@@@_@__@@_@_@@@@@_____
-            _____@@@@@@_@_@@__@@@@@@@_____
-            ____@@@@@@@__@@______@@@@@_____
-            ____@@@@@_____@_________@@@_____
-            ____@@_________@__________@_____
-            _____@_________@_____
-            _______________@_____
-            ____________@_@_____
-            _____________@@_@_____
-            ______________@@_____
-            ______________@_____..........
-        </pre>
-
-        <pre><code>
-        &lt;p&gt;Доставка: 999 руб.&lt;/p&gt;
-        </code></pre>
-
-    </main>
-
-    <footer>
-        <p>tg: <a href="https://t.me/mirreael" target="_blank">mirreael</a></p>
-    </footer>
-
+    
+        <section class="catalog">
+            <h2 class="catalog__title" id="catalog_title">Каталог</h2>
+            <div class="catalog__container">
+                <div class="catalog__item">
+                    <img src="images/item1.jpg" alt="Букет цветов" class="catalog__image">
+                    <div class="catalog__details">
+                        <span class="catalog__info">1 раз в месяц</span>
+                        <span class="catalog__info">3 разных цветков</span>
+                        <span class="catalog__info">Без упаковки</span>
+                        <span class="catalog__info">Доставка 6:00 - 8:00</span>
+                        <span class="catalog__price">999р/месяц</span>
+                    </div>
+                </div>
+                <div class="catalog__item">
+                    <img src="images/item2.jpg" alt="Букет цветов" class="catalog__image">
+                    <div class="catalog__details">
+                        <span class="catalog__info">2 раза в месяц</span>
+                        <span class="catalog__info">3 разных цветков</span>
+                        <span class="catalog__info">Без упаковки</span>
+                        <span class="catalog__info">Доставка 6:00 - 8:00</span>
+                        <span class="catalog__price">1999р/месяц</span>
+                    </div>
+                </div>
+                <div class="catalog__item">
+                    <img src="images/item3.jpg" alt="Букет цветов" class="catalog__image">
+                    <div class="catalog__details">
+                        <span class="catalog__info">3 раза в месяц</span>
+                        <span class="catalog__info">3 разных цветков</span>
+                        <span class="catalog__info">Без упаковки</span>
+                        <span class="catalog__info">Доставка 6:00 - 8:00</span>
+                        <span class="catalog__price">2999р/месяц</span>
+                    </div>
+                </div>
+            </div>
+            <div class="catalog__container">
+                <div class="catalog__item">
+                    <img src="images/item4.jpg" alt="Букет цветов" class="catalog__image">
+                    <div class="catalog__details">
+                        <span class="catalog__info">2 раза в месяц</span>
+                        <span class="catalog__info">6 разных цветков</span>
+                        <span class="catalog__info">Упаковка</span>
+                        <span class="catalog__info">Доставка в любое время</span>
+                        <span class="catalog__price">3999р/месяц</span>
+                    </div>
+                </div>
+                <div class="catalog__item">
+                    <img src="images/item5.jpg" alt="Букет цветов" class="catalog__image">
+                    <div class="catalog__details">
+                        <span class="catalog__info">3 раз в месяц</span>
+                        <span class="catalog__info">6 разных цветков</span>
+                        <span class="catalog__info">Упаковка</span>
+                        <span class="catalog__info">Доставка в любое время</span>
+                        <span class="catalog__price">4999р/месяц</span>
+                    </div>
+                </div>
+                <div class="catalog__item">
+                    <img src="images/item6.jpg" alt="Букет цветов" class="catalog__image">
+                    <div class="catalog__details">
+                        <span class="catalog__info">8 раз в месяц</span>
+                        <span class="catalog__info">10 разных цветков</span>
+                        <span class="catalog__info">Упаковка</span>
+                        <span class="catalog__info">Доставка в любое время</span>
+                        <span class="catalog__price">12999р/месяц</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
+<footer>
+    <div class="footer">
+        <span class="footer_info">
+            @tg:<a href="https://t.me/mirreael" target="_blank" class="footer__link">mirreael</a>
+        </span>
+    </div>
+</footer>
 </html>
