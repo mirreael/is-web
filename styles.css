@@ -16,12 +16,17 @@
     background-color: white;
     padding: 10px;
     border: 2px solid #ef8181;
-}
-
-.nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.layout__paragraph {
+    font-style: italic;
+    text-transform: uppercase;
+    margin-left: 10px;
+    word-spacing: 15px;
+    text-align: justify;
 }
 
 .nav__menu {
