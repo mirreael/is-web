@@ -99,13 +99,11 @@ a {
 }
 
 .catalog__container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap; 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
     gap: 20px;
     width: 70%;
     margin: 0 auto;
-    justify-content: center;
 }
 
 .catalog__title {
@@ -118,7 +116,6 @@ a {
 }
 
 .catalog__item {
-    flex-basis: calc(100% / 4);
     background-color: white;
     padding: 20px;
     text-align: center;
@@ -174,7 +171,7 @@ a {
     }
 
     .catalog__container {
-        flex-basis: calc(100% / 5);
+        grid-template-columns: repeat(1, 1fr);
     }
 
     .nav__menu {
@@ -192,16 +189,13 @@ a {
     .promo__title {
         font-size: 80px;
     }
-
     .promo__text {
         font-size: 40px;
     }
-
     .catalog__container {
         width: 80%;
     }
-
     .table-container {
-        flex-basis: 100%;
+        grid-template-columns: repeat(5, 1fr);
     }
 }
