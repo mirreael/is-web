@@ -1,0 +1,26 @@
+.about {
+    max-width: 80%;
+    margin: 0 auto;
+    justify-content: center;
+}
+.about__description {
+    margin: 20px;
+    padding: 40px;
+}
+.about__card {
+    padding-top: 20px;
+    justify-content: center;
+    height: 50vh;
+}
+
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr; 
+    grid-template-rows: auto 100vh auto; 
+    gap: 20px;
+    min-height: 100vh;
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+    z-index: 0; 
+}
