@@ -10,7 +10,7 @@ a {
 
 .layout {
     display: grid;
-    grid-template-columns: 1fr repeat(2, minmax(200px, 1fr)); 
+    grid-template-columns: 1fr repeat(2, minmax(200px, 1fr));
     grid-template-rows: auto 100vh auto; 
     gap: 20px;
     min-height: 100vh;
@@ -193,4 +193,12 @@ a {
     .table-container {
         grid-template-columns: repeat(5, 1fr);
     }
+}
+.nav__item .nav__link:hover {
+    background-color: #f0f0f0;
+    border-bottom: 2px solid black;
+}
+
+.nav__item.active .nav__link {
+    border-bottom: 2px solid black;
 }
