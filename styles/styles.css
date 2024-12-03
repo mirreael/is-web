@@ -11,12 +11,12 @@ a {
 .layout {
     display: grid;
     grid-template-columns: 1fr repeat(2, minmax(200px, 1fr));
-    grid-template-rows: auto 100vh auto; 
+    grid-template-rows: auto 100vh auto;
     gap: 20px;
     min-height: 100vh;
     position: relative;
     font-family: 'Open Sans', sans-serif;
-    z-index: 0; 
+    z-index: 0;
 }
 
 
@@ -35,14 +35,14 @@ a {
     height: 100%;
     background: url('../images/texture.jpg') center fixed;
     background-size: cover;
-    opacity: 0.4; 
-    z-index: -1; 
+    opacity: 0.4;
+    z-index: -1;
 }
 
 
 .nav__menu {
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(5, auto);
     justify-content: center;
     list-style: none;
     gap: 40px;
@@ -89,13 +89,13 @@ a {
 }
 
 .catalog {
-    grid-column: 1 / -1; 
+    grid-column: 1 / -1;
     padding: 50px 0;
 }
 
 .catalog__container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     width: 70%;
     margin: 0 auto;

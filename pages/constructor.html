@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Подписка на доставку цветов" />
+    <title>Подписка на доставку цветов</title>
+    <link rel="stylesheet" type="text/css" href="../styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="../styles/constructor.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="../images/favicon-32x32.png">
+</head>
+<body>
+<div class="layout">
+    <header class="layout__header">
+        <ul class="nav__menu">
+            <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+            <li class="nav__item"><a href="catalog.html" class="nav__link">Каталог</a></li>
+            <li class="nav__item"><a href="conditions.html" class="nav__link">Условия</a></li>
+            <li class="nav__item"><a href="about.html" class="nav__link">О нас</a></li>
+            <li class="nav__item"><a href="constructor.html" class="nav__link">Конструктор</a></li>
+        </ul>
+    </header>
+
+    <main class="constructor">
+        <h1 class="constructor__title">Создать таблицу доставки</h1>
+        <form id="deliveryForm" class="constructor__form">
+            <label for="name">Имя клиента:</label>
+            <input type="text" id="name" name="name" placeholder="Введите имя" required>
+
+            <label for="address">Адрес доставки:</label>
+            <input type="text" id="address" name="address" placeholder="Введите адрес" required>
+
+            <label for="flowers">Количество букетов:</label>
+            <input type="number" id="flowers" name="flowers" min="1" max="50" required>
+
+            <label for="days">Дней доставки:</label>
+            <select id="days" name="days">
+                <option value="5">5 дней</option>
+                <option value="6">6 дней</option>
+                <option value="7">7 дней</option>
+            </select>
+
+            <button type="submit">Создать таблицу</button>
+        </form>
+
+        <div id="tableContainer" class="constructor__table-container">
+            <!-- Таблица будет сгенерирована здесь -->
+        </div>
+    </main>
+
+
+    <footer class="footer">
+            <span class="footer__info">
+                @tg: <a href="https://t.me/mirreael" target="_blank" class="footer__link">mirreael</a>
+            </span>
+        <span class="load-time"></span>
+    </footer>
+</div>
+</body>
+<script src="../scripts/createTable.js"></script>
+<script src="../scripts/menuActive.js"></script>
+</html>

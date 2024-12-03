@@ -1,0 +1,126 @@
+.constructor {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: auto; /* Убираем фиксированную высоту, чтобы форма не была ограничена */
+}
+
+.constructor__title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.constructor__form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.constructor__form label {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.constructor__form input,
+.constructor__form select,
+.constructor__form button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.constructor__form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.constructor__form button:hover {
+    background-color: #0056b3;
+}
+
+.constructor__table-container {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.table th {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Стили для layout, чтобы не было конфликтов с глобальными стилями */
+.layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto; /* Оставляем место для футера */
+    min-height: 100vh;
+}
+
+.layout__header {
+    grid-column: 1 / -1;
+    background-color: white;
+    padding: 10px;
+}
+
+.layout__footer {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: #fff;
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+    .constructor {
+        padding: 15px;
+    }
+
+    .constructor__title {
+        font-size: 20px;
+    }
+
+    .constructor__form {
+        gap: 10px;
+    }
+
+    .constructor__form input,
+    .constructor__form select,
+    .constructor__form button {
+        font-size: 14px;
+    }
+
+    .table th, .table td {
+        font-size: 14px;
+    }
+}
