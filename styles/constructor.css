@@ -9,7 +9,7 @@
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: auto; /* Убираем фиксированную высоту, чтобы форма не была ограничена */
+    height: auto;
 }
 
 .constructor__title {
@@ -60,28 +60,46 @@
     justify-content: center;
 }
 
-.table {
+.constructor__table-container .table {
     width: 100%;
+    max-width: 800px;
     border-collapse: collapse;
     margin-top: 20px;
+    table-layout: fixed;
 }
 
-.table th, .table td {
+.constructor__table-container .table th,
+.constructor__table-container .table td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
+    word-wrap: break-word;
 }
 
-.table th {
+.constructor__table-container .table th {
     background-color: #007bff;
     color: white;
 }
 
-/* Стили для layout, чтобы не было конфликтов с глобальными стилями */
+.constructor__clear-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #f44336;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.constructor__clear-button:hover {
+    background-color: #d32f2f;
+}
+
 .layout {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto; /* Оставляем место для футера */
+    grid-template-rows: auto 1fr auto;
     min-height: 100vh;
 }
 
@@ -100,7 +118,6 @@
     background-color: #fff;
 }
 
-/* Мобильные стили */
 @media (max-width: 768px) {
     .constructor {
         padding: 15px;
@@ -120,7 +137,8 @@
         font-size: 14px;
     }
 
-    .table th, .table td {
+    .constructor__table-container .table th,
+    .constructor__table-container .table td {
         font-size: 14px;
     }
 }

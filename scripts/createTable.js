@@ -30,6 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
         clearTable();
     });
 
+
+
+
     function createClearButton() {
         const button = document.createElement("button");
         button.textContent = "Очистить таблицу";
@@ -114,6 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function clearTable() {
         localStorage.removeItem("flowerTableData");
         tableData = [];
-        renderTable(tableData);
+        createTable(tableData);
     }
 });
