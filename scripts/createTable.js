@@ -1,68 +1,105 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("deliveryForm");
+    const form = document.getElementById("formName");
     const tableContainer = document.getElementById("tableContainer");
+    const template = document.getElementById("table-row-template");
+    const clearButton = document.createElement("button"); // Создаём кнопку очистки
+    const TABLE_STORAGE_KEY = "flowerTableData"; // Ключ для localStorage
 
-    // Обработчик отправки формы
-    form.addEventListener("submit", (event) => {
-        event.preventDefault();
+    // Настройка кнопки очистки
+    clearButton.textContent = "Очистить таблицу";
+    clearButton.classList.add("constructor__clear-button");
+    tableContainer.parentNode.insertBefore(clearButton, tableContainer.nextSibling);
 
-        // Сбор данных из формы
-        const name = document.getElementById("name").value;
-        const address = document.getElementById("address").value;
-        const flowers = document.getElementById("flowers").value;
-        const days = document.getElementById("days").value;
+    // Функция для сохранения данных в localStorage
+    const saveToLocalStorage = (data) => {
+        localStorage.setItem(TABLE_STORAGE_KEY, JSON.stringify(data));
+    };
 
-        // Генерация таблицы
-        generateTable(name, address, flowers, days);
+    // Функция для получения данных из localStorage
+    const loadFromLocalStorage = () => {
+        const data = localStorage.getItem(TABLE_STORAGE_KEY);
+        return data ? JSON.parse(data) : [];
+    };
 
-        // Сохранение данных в LocalStorage
-        const formData = { name, address, flowers, days };
-        localStorage.setItem("deliveryFormData", JSON.stringify(formData));
-    });
+    // Функция для отрисовки таблицы
+    const renderTable = (tableData) => {
+        tableContainer.innerHTML = ""; // Очищаем контейнер перед отрисовкой
 
-    // Функция генерации таблицы
-    function generateTable(name, address, flowers, days) {
-        // Очищаем контейнер
-        tableContainer.innerHTML = "";
-
-        // Создаем таблицу
-        const table = document.createElement("table");
-        table.className = "table";
-
-        // Создаем заголовок таблицы
-        const thead = document.createElement("thead");
-        thead.innerHTML = `
-            <tr>
-                <th>День</th>
-                <th>Имя клиента</th>
-                <th>Адрес доставки</th>
-                <th>Количество букетов</th>
-            </tr>
-        `;
-        table.appendChild(thead);
-
-        // Создаем тело таблицы
-        const tbody = document.createElement("tbody");
-        for (let i = 1; i <= days; i++) {
-            const row = document.createElement("tr");
-            row.innerHTML = `
-                <td>День ${i}</td>
-                <td>${name}</td>
-                <td>${address}</td>
-                <td>${flowers}</td>
-            `;
-            tbody.appendChild(row);
+        if (tableData.length === 0) {
+            tableContainer.textContent = "Таблица пуста."; // Показать сообщение, если нет данных
+            return;
         }
-        table.appendChild(tbody);
+
+        // Создаём таблицу
+        const table = document.createElement("table");
+        table.classList.add("constructor__table");
+
+        table.innerHTML = `
+            <thead>
+                <tr>
+                    <th>Цветов в букете</th>
+                    <th>День доставки</th>
+                    <th>Цена</th>
+                </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        `;
+
+        const tableBody = table.querySelector("#table-body");
+
+        // Добавляем строки в таблицу
+        tableData.forEach((row) => {
+            const clone = template.content.cloneNode(true);
+            const cells = clone.querySelectorAll(".table__cell");
+
+            cells[0].textContent = row.flowers;
+            cells[1].textContent = row.day;
+            cells[2].textContent = `${row.price} руб.`;
+
+            tableBody.appendChild(clone);
+        });
 
         // Добавляем таблицу в контейнер
         tableContainer.appendChild(table);
-    }
+    };
 
-    // Загрузка данных из LocalStorage
-    const savedData = localStorage.getItem("deliveryFormData");
-    if (savedData) {
-        const { name, address, flowers, days } = JSON.parse(savedData);
-        generateTable(name, address, flowers, days);
-    }
+    // Загружаем и отображаем таблицу при загрузке страницы
+    let tableData = loadFromLocalStorage();
+    renderTable(tableData);
+
+    // Обработка отправки формы
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        // Получаем данные из формы
+        const flowers = parseInt(form.elements["flowers"].value, 10);
+        const day = `День ${tableData.length + 1}`; // Устанавливаем день доставки на основе количества записей
+        const price = flowers * 100; // Рассчитываем цену
+
+        // Создаём объект для новой строки таблицы
+        const newRow = {
+            flowers,
+            day,
+            price,
+        };
+
+        // Добавляем новую запись в массив данных
+        tableData.push(newRow);
+
+        // Сохраняем в localStorage
+        saveToLocalStorage(tableData);
+
+        // Отрисовываем таблицу с обновлёнными данными
+        renderTable(tableData);
+
+        // Очищаем форму после отправки
+        form.reset();
+    });
+
+    // Обработка кнопки "Очистить таблицу"
+    clearButton.addEventListener("click", () => {
+        localStorage.removeItem(TABLE_STORAGE_KEY); // Удаляем данные из localStorage
+        tableData = []; // Очищаем массив данных
+        renderTable(tableData); // Перерисовываем пустую таблицу
+    });
 });

@@ -25,32 +25,37 @@
     </header>
 
     <main class="constructor">
-        <h1 class="constructor__title">Создать таблицу доставки</h1>
-        <form id="deliveryForm" class="constructor__form">
-            <label for="name">Имя клиента:</label>
-            <input type="text" id="name" name="name" placeholder="Введите имя" required>
+    <h1 class="constructor__title">Конструктор доставки</h1>
 
-            <label for="address">Адрес доставки:</label>
-            <input type="text" id="address" name="address" placeholder="Введите адрес" required>
+    <form id="formName" class="constructor__form">
+        <label for="name">Имя клиента:</label>
+        <input type="text" id="name" name="name" placeholder="Введите имя">
 
-            <label for="flowers">Количество букетов:</label>
-            <input type="number" id="flowers" name="flowers" min="1" max="50" required>
+        <label for="address">Адрес доставки:</label>
+        <input type="text" id="address" name="address" placeholder="Введите адрес" >
 
-            <label for="days">Дней доставки:</label>
-            <select id="days" name="days">
-                <option value="5">5 дней</option>
-                <option value="6">6 дней</option>
-                <option value="7">7 дней</option>
-            </select>
+        <label for="month">Количество раз в месяц:</label>
+        <input type="number" id="month" name="month" min="1" max="31" >
 
-            <button type="submit">Создать таблицу</button>
-        </form>
+        <label for="flowers">Количество цветов в букете: </label>
+        <input type="number" id="flowers" name="flowers" min="1" max="15" >
 
-        <div id="tableContainer" class="constructor__table-container">
-            <!-- Таблица будет сгенерирована здесь -->
-        </div>
-    </main>
 
+        <button type="submit">Создать таблицу</button>
+    </form>
+
+    <template id="table-row-template">
+        <tr>
+            <td class="table__cell flowers"></td>
+            <td class="table__cell month"></td>
+            <td class="table__cell price"></td>
+        </tr>
+    </template>
+
+    <div id="tableContainer" class="constructor__table-container">
+
+    </div>
+</main>
 
     <footer class="footer">
             <span class="footer__info">
