@@ -2,35 +2,61 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("formName");
     const tableContainer = document.getElementById("tableContainer");
     const template = document.getElementById("table-row-template");
-    const clearButton = document.createElement("button"); // Создаём кнопку очистки
-    const TABLE_STORAGE_KEY = "flowerTableData"; // Ключ для localStorage
+    const clearButton = createClearButton();
 
-    // Настройка кнопки очистки
-    clearButton.textContent = "Очистить таблицу";
-    clearButton.classList.add("constructor__clear-button");
     tableContainer.parentNode.insertBefore(clearButton, tableContainer.nextSibling);
 
-    // Функция для сохранения данных в localStorage
-    const saveToLocalStorage = (data) => {
-        localStorage.setItem(TABLE_STORAGE_KEY, JSON.stringify(data));
-    };
+    let tableData = loadFromLocalStorage();
 
-    // Функция для получения данных из localStorage
-    const loadFromLocalStorage = () => {
-        const data = localStorage.getItem(TABLE_STORAGE_KEY);
-        return data ? JSON.parse(data) : [];
-    };
+    createTable(tableData);
 
-    // Функция для отрисовки таблицы
-    const renderTable = (tableData) => {
-        tableContainer.innerHTML = ""; // Очищаем контейнер перед отрисовкой
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
 
-        if (tableData.length === 0) {
-            tableContainer.textContent = "Таблица пуста."; // Показать сообщение, если нет данных
+        if (!validateForm(form)) {
+            alert("Имя клиента не должно содержать цифр!");
             return;
         }
 
-        // Создаём таблицу
+        const newRow = createRow(form);
+        tableData.push(newRow);
+
+        saveToLocalStorage(tableData);
+        createTable(tableData);
+        form.reset();
+    });
+
+    clearButton.addEventListener("click", () => {
+        clearTable();
+    });
+
+    function createClearButton() {
+        const button = document.createElement("button");
+        button.textContent = "Очистить таблицу";
+        button.classList.add("constructor__clear-button");
+        return button;
+    }
+
+    function loadFromLocalStorage() {
+        const data = localStorage.getItem("flowerTableData");
+        return data ? JSON.parse(data) : [];
+    }
+
+    function saveToLocalStorage(data) {
+        localStorage.setItem("flowerTableData", JSON.stringify(data));
+    }
+
+    function createTable(tableData) {
+        tableContainer.innerHTML = "";
+
+        if (tableData.length === 0) {
+            tableContainer.textContent = "Таблица пуста.";
+            clearButton.style.display = "none";
+            return;
+        }
+
+        clearButton.style.display = "block";
+
         const table = document.createElement("table");
         table.classList.add("constructor__table");
 
@@ -38,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <thead>
                 <tr>
                     <th>Цветов в букете</th>
-                    <th>День доставки</th>
+                    <th>Количество раз в месяц</th>
                     <th>Цена</th>
                 </tr>
             </thead>
@@ -47,59 +73,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const tableBody = table.querySelector("#table-body");
 
-        // Добавляем строки в таблицу
         tableData.forEach((row) => {
             const clone = template.content.cloneNode(true);
             const cells = clone.querySelectorAll(".table__cell");
 
             cells[0].textContent = row.flowers;
-            cells[1].textContent = row.day;
+            cells[1].textContent = row.dayOfMonth;
             cells[2].textContent = `${row.price} руб.`;
 
             tableBody.appendChild(clone);
         });
 
-        // Добавляем таблицу в контейнер
         tableContainer.appendChild(table);
-    };
+    }
 
-    // Загружаем и отображаем таблицу при загрузке страницы
-    let tableData = loadFromLocalStorage();
-    renderTable(tableData);
-
-    // Обработка отправки формы
-    form.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        // Получаем данные из формы
+    function createRow(form) {
         const flowers = parseInt(form.elements["flowers"].value, 10);
-        const day = `День ${tableData.length + 1}`; // Устанавливаем день доставки на основе количества записей
-        const price = flowers * 100; // Рассчитываем цену
+        const dayOfMonth = parseInt(form.elements["month"].value, 10);
 
-        // Создаём объект для новой строки таблицы
-        const newRow = {
+        if (isNaN(flowers) || isNaN(dayOfMonth)) {
+            alert("Введите корректные данные!");
+            throw new Error("Некорректные данные");
+        }
+
+        const price = flowers * dayOfMonth * 100 + 1000;
+
+        return {
             flowers,
-            day,
+            dayOfMonth,
             price,
         };
+    }
 
-        // Добавляем новую запись в массив данных
-        tableData.push(newRow);
+    function validateForm(form) {
+        const name = form.elements["name"].value;
+        const nameRegex = /^[^\d]+$/;
+        return nameRegex.test(name);
+    }
 
-        // Сохраняем в localStorage
-        saveToLocalStorage(tableData);
-
-        // Отрисовываем таблицу с обновлёнными данными
+    function clearTable() {
+        localStorage.removeItem("flowerTableData");
+        tableData = [];
         renderTable(tableData);
-
-        // Очищаем форму после отправки
-        form.reset();
-    });
-
-    // Обработка кнопки "Очистить таблицу"
-    clearButton.addEventListener("click", () => {
-        localStorage.removeItem(TABLE_STORAGE_KEY); // Удаляем данные из localStorage
-        tableData = []; // Очищаем массив данных
-        renderTable(tableData); // Перерисовываем пустую таблицу
-    });
+    }
 });
