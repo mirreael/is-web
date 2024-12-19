@@ -1,0 +1,25 @@
+[data-tooltip]:after {
+    background-color: #f8d6e1;
+    color: #323232;
+    font-family: 'Open Sans', sans-serif;
+    padding: 10px;
+    border: 1px solid #d1a7b3;
+    min-width: 40px;
+}
+
+[data-tooltip].simptip-position-top:after {
+    background-color: #f8d6e1;
+    color: #323232;
+}
+[data-tooltip].simptip-position-bottom:after {
+    background-color: #f8d6e1;
+    color: #323232;
+}
+[data-tooltip].simptip-position-left:after {
+    background-color: #f8d6e1;
+    color: #323232;
+}
+[data-tooltip].simptip-position-right:after {
+    background-color: #f8d6e1;
+    color: #323232;
+}
