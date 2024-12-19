@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function loadNextBatch() {
         const nextBatch = messages.slice(currentIndex, currentIndex + 10);
         nextBatch.forEach((message) => {
-            const messageElement = document.importNode(messageTemplate, true);
+            const messageуElement = document.importNode(messageTemplate, true);
             messageElement.querySelector('.conversation__message-title').textContent = message.title;
             messageElement.querySelector('.conversation__message-body').textContent = message.body;
             messagesContainer.appendChild(messageElement);
@@ -43,5 +43,5 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleScroll);
 
     //TO-DO: improve exception
-    loadMessages();
+    loadMessages()
 });
