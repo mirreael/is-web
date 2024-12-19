@@ -94,10 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const flowers = parseInt(form.elements["flowers"].value, 10);
         const dayOfMonth = parseInt(form.elements["month"].value, 10);
 
-        if (isNaN(flowers) || isNaN(dayOfMonth)) {
-            alert("Введите корректные данные!");
-            throw new Error("Некорректные данные");
-        }
 
         const price = flowers * dayOfMonth * 100 + 1000;
 
@@ -120,3 +116,4 @@ document.addEventListener("DOMContentLoaded", () => {
         createTable(tableData);
     }
 });
+

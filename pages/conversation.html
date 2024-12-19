@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Обсуждение сообщений для гостевой книги">
+  <title>Обсуждение</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+  <link rel="stylesheet" href="../styles/conversation.css">
+  <link rel="shortcut icon" type="image/png" href="../images/favicon-32x32.png">
+</head>
+<body>
+<div class="layout">
+  <header class="layout__header">
+    <ul class="nav__menu">
+      <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+      <li class="nav__item"><a href="catalog.html" class="nav__link">Каталог</a></li>
+      <li class="nav__item"><a href="conditions.html" class="nav__link">Условия</a></li>
+      <li class="nav__item"><a href="about.html" class="nav__link">О нас</a></li>
+      <li class="nav__item"><a href="constructor.html" class="nav__link">Конструктор</a></li>
+    </ul>
+  </header>
+  <main class="layout__main">
+    <section class="conversation">
+      <h1 class="conversation__title">Обсуждение</h1>
+      <div id="preloader" class="preloader">Загрузка...</div>
+      <!-- Контейнер для сообщений -->
+      <div id="messagesContainer"></div>
+      <!-- Шаблон для сообщений -->
+      <template id="messageTemplate">
+        <div class="conversation__message">
+          <div class="conversation__message-title"></div>
+          <div class="conversation__message-body"></div>
+        </div>
+      </template>
+    </section>
+  </main>
+  <footer class="footer">
+    <span class="footer__info">
+      @tg: <a href="https://t.me/mirreael" target="_blank" class="footer__link">mirreael</a>
+    </span>
+    <span class="load-time"></span>
+  </footer>
+</div>
+<script src="../scripts/menuActive.js"></script>
+<script src="../scripts/conversationScript.js"></script>
+</body>
+</html>
