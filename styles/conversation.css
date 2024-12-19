@@ -1,7 +1,7 @@
 .conversation {
     display: grid;
-    grid-template-rows: auto auto; /* Заголовок и сообщения */
-    grid-template-columns: 1fr; /* Один столбец */
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
     align-items: center;
     justify-items: center;
     padding: 20px;
@@ -10,9 +10,9 @@
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin: 40px auto;
-    max-width: 70%; /* Устанавливаем ширину 70% */
+    max-width: 70%;
     width: 100%;
-    overflow: visible; /* Убираем ограничение прокрутки */
+    overflow: visible;
 }
 
 .conversation__message {
@@ -36,13 +36,13 @@
     color: #222;
     text-align: center;
     margin-bottom: 20px;
-    grid-row: 1; /* Заголовок занимает первую строку */
+    grid-row: 1;
 }
 
-/* Мобильная адаптация */
+
 @media (max-width: 768px) {
     .conversation {
-        max-width: 90%; /* Увеличиваем ширину для мобильных устройств */
+        max-width: 90%;
     }
 
     .conversation__message {
@@ -52,7 +52,6 @@
 }
 
 
-/* Общие стили */
 * {
     padding: 0;
     margin: 0;
@@ -67,7 +66,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Лейаут */
 .layout {
     display: grid;
     grid-template-columns: 1fr;
